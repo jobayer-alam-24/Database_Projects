@@ -51,6 +51,36 @@ CREATE TABLE tbl_payment_list
 	patient_id INT NOT NULL FOREIGN KEY REFERENCES tbl_patient(registration_id),
 	service_id INT NOT NULL FOREIGN KEY REFERENCES tbl_services(service_id),
 	amount float not null,
-	proof_of_payment 
-
+	proof_of_payment varchar(max) not null,
+	-- Paid Or Unpaid 0/1
+	[status] varchar(1) not null,
+	remarks varchar(max) not null,
+	processed_by nvarchar(30) not null
+);
+-- Appointment Table
+CREATE TABLE tbl_appointment
+(
+	appointment_id INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	doctor_id INT NOT NULL FOREIGN KEY REFERENCES tbl_doctor(doctor_id),
+	patient_id INT NOT NULL FOREIGN KEY REFERENCES tbl_patient(registration_id),
+	[date] date not null,
+	[time] time not null,
+	service_id INT NOT NULL FOREIGN KEY REFERENCES tbl_services(service_id),
+	amount float not null,
+	meeting_link varchar(max) not null,
+	-- Meeting has done or not yet 0/1
+	[status] varchar(1) not null,
+);
+-- User Table
+CREATE TABLE tbl_user
+(
+	[user_id] INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+	username nvarchar(20) not null,
+	[password] nvarchar(30) not null,
+	avatar varchar(max) not null,
+	full_name nvarchar(30) not null,
+	contact nvarchar(20) not null,
+	email nvarchar(20) not null,
+	-- Active or Inactive 0/1
+	[status] varchar(1) not null
 );
