@@ -1,5 +1,5 @@
-CREATE DATABASE West_management_with_reward_system
-USE West_management_with_reward_system
+CREATE DATABASE Waste_management_with_reward_system
+USE Waste_management_with_reward_system
 
 -- Members Table
 CREATE TABLE tbl_member
