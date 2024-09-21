@@ -10,7 +10,7 @@ CREATE TABLE tbl_employee
 	[address] nvarchar(max) not null,
 	contact varchar(11) not null UNIQUE
 );
--- Customet Table
+-- Customer Table
 CREATE TABLE tbl_customer
 (
 	customer_id int identity(1, 1) not null primary key,
